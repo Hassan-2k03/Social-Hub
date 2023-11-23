@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
 
+body {
+  background-color: #cfd8dc ; /* Replace with your preferred color */
+}
+
 a{
   color: black !important ;
 }
@@ -13,7 +17,7 @@ a{
 }
 
 .auth-card{
-  padding: 20px;
+  padding: 50px;
   text-align: center;
   max-width: 400px;
   margin: 10px auto;
@@ -31,6 +35,8 @@ a{
 
 .gallery{
   display: flex;
+
+  
   flex-wrap: wrap;
   justify-content: space-around;
 }

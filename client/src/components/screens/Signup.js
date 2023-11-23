@@ -64,9 +64,9 @@ const SignUp = () => {
                 >
                     SignUp
                 </button>
-                <h5>
-                    <Link to="/signin">Account already exists !!!</Link>
-                </h5>
+                <h6>
+                    <Link to="/signin">Login</Link>
+                </h6>
             </div>
         </div>
     )
