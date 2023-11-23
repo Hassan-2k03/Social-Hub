@@ -13,6 +13,7 @@ const Navbar = () => {
                     <button className="btn waves-effect waves-light #b39ddb deep-purple lighten-3"
                         onClick={() =>
                             localStorage.clear() & dispatch({ type: "CLEAR" }) & window.location.reload(false)
+                            
                         }
                     >
                         Logout
