@@ -10,12 +10,12 @@ const requireLogin = require('../middleware/requireLogin')
 router.post('/signup', (req, res) => {
     const { name, email, password } = req.body
     if (!email || !password || !name) {
-        return res.status(422).json({ error: "please add all the fields" })
+        return res.status(422).json({ error: "Please add all the fields" })
     }
     User.findOne({ email: email })
         .then((savedUser) => {
             if (savedUser) {
-                return res.status(422).json({ error: "user already exists with that email" })
+                return res.status(422).json({ error: "User already exists with that email" })
             }
             bcrypt.hash(password, 12)
                 .then(hashedpassword => {
@@ -27,7 +27,7 @@ router.post('/signup', (req, res) => {
 
                     user.save()
                         .then(user => {
-                            res.json({ message: "saved successfully" })
+                            res.json({ message: "Saved successfully" })
                         })
                         .catch(err => {
                             console.log(err)
