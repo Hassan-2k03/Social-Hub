@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = require('../keys')
 const requireLogin = require('../middleware/requireLogin')
 
-router.post('/signup', (req, res) => {
+router.post('/signin', (req, res) => {
     const { name, email, password } = req.body
     if (!email || !password || !name) {
         return res.status(422).json({ error: "Please add all the fields" })
@@ -42,7 +42,7 @@ router.post('/signup', (req, res) => {
 router.post('/signin', (req, res) => {
     const { email, password } = req.body
     if (!email || !password) {
-        res.status(422).json({ error: "please add email or password" })
+        res.status(422).json({ error: "Please add email or password" })
     }
     User.findOne({ email: email })
         .then(savedUser => {
