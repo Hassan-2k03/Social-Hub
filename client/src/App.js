@@ -32,11 +32,10 @@ const Routing = () => {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/create" element={<CreatePost />} />
+      <Route path="/createpost" element={<CreatePost />} />
     </Routes>
   )
 }
-
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)

@@ -1,20 +1,36 @@
-import React from "react";
-
+import React, { useState, useEffect } from 'react'
 const Home = () => {
+    const [data, setData] = useState([])
+    useEffect(() => {
+        fetch('/allpost', {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            }
+        }).then(res => res.json())
+            .then(result => {
+                setData(result.posts)
+            })
+    }, [])
     return (
         <div className="home">
-            <div className="card home-card">
-                <h5>Mister pug</h5>
-                <div className="card-image">
-                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nfGVufDB8MXwwfHx8MA%3D%3D" />
-                </div>
-                <div className="card-content">
-                <i className="material-icons" style={{color:"red"}}>favorite</i>
-                    <h6>Title</h6>
-                    <p>This is amazing post</p>
-                    <input type="text" placeholder="Add a comment" />
-                </div>
-            </div>
+            {
+                data.map(item => {
+                    return (
+                        <div className="card home-card" key={item._id}>
+                            <h5>{item.postedBy ? item.postedBy.name : 'Unknown'}</h5>
+                            <div className="card-image">
+                                <img src={item.photo} />
+                            </div>
+                            <div className="card-content">
+                                <i className="material-icons" style={{ color: "red" }}>favorite</i>
+                                <h6>{item.title}</h6>
+                                <p>{item.body}</p>
+                                <input type="text" placeholder="Add a comment" />
+                            </div>
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }
