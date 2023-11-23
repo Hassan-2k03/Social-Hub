@@ -72,4 +72,23 @@ router.put('/unlike', requireLogin, async (req, res) => {
     }
 });
 
+router.put('/comment', requireLogin, async (req, res) => {
+    const comment = {
+        text: req.body.text,
+        postedBy: req.user._id
+    }
+    try {
+        const result = await Post.findByIdAndUpdate(req.body.postId, {
+            $push: { comments: comment }
+        }, {
+            new: true
+        })
+        .populate("comments.postedBy", "_id name")
+        .exec();
+        res.json(result);
+    } catch(err) {
+        return res.status(422).json({ error: err });
+    }
+})
+
 module.exports = router; 
