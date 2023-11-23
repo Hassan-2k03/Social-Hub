@@ -6,6 +6,7 @@ import Home from "./components/screens/Home"
 import SignIn from "./components/screens/Signin" // Changed 'Signin' to 'SignIn'
 import Profile from "./components/screens/Profile"
 import SignUp from "./components/screens/Signup" // Changed 'Signup' to 'SignUp'
+import CreatePost from './components/screens/CreatePost';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/create" element={<CreatePost />} />
       </Routes>
 </BrowserRouter>
   );
