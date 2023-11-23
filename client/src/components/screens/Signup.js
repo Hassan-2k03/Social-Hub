@@ -3,7 +3,7 @@ import { Link,useNavigate } from "react-router-dom";
 import M from "materialize-css";
 
 
-const SignIn = () => {
+const SignUp = () => {
     const navigate = useNavigate()
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
@@ -72,4 +72,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignUp
